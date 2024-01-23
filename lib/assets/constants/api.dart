@@ -1,0 +1,1 @@
+const weatherApi='https://api.weatherapi.com/v1/current.json?key=e76d154ceb2a4e05a2c62513241901&q=Dubai&aqi=no';
