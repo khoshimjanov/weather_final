@@ -94,6 +94,12 @@ class $AssetsFontsGen {
       ];
 }
 
+class $AssetsIconsGen {
+  const $AssetsIconsGen();
+
+  $AssetsIconsWeatherGen get weather => const $AssetsIconsWeatherGen();
+}
+
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
@@ -105,10 +111,27 @@ class $AssetsImagesGen {
   List<AssetGenImage> get values => [mainBackground];
 }
 
+class $AssetsIconsWeatherGen {
+  const $AssetsIconsWeatherGen();
+
+  /// File path: assets/icons/weather/cloud.svg
+  String get cloud => 'assets/icons/weather/cloud.svg';
+
+  /// File path: assets/icons/weather/rain.svg
+  String get rain => 'assets/icons/weather/rain.svg';
+
+  /// File path: assets/icons/weather/sun.svg
+  String get sun => 'assets/icons/weather/sun.svg';
+
+  /// List of all assets
+  List<String> get values => [cloud, rain, sun];
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsFontsGen fonts = $AssetsFontsGen();
+  static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 

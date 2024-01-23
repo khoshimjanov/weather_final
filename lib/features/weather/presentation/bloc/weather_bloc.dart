@@ -19,14 +19,17 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       emit(state.copyWith(dataStatus: LoadingStatus.loading));
       try {
         WeatherModel weather = await _response.getWeather();
-// print(weather.currentWeatherModel.condition.text);
-        final weatherType =
-            getWeatherType(weather.currentWeatherModel.condition.text);
-            print(weatherType.name);
+        final weatherType = getWeatherType(
+          weather.currentWeatherModel.cloud,
+          weather.currentWeatherModel.temperature,
+        );
+        final color = getColor(weatherType);
         emit(
-
           state.copyWith(
-              weatherModel: weather, weatherModelStatus: weatherType),
+              weatherModel: weather,
+              weatherModelStatus: weatherType,
+              color: color,
+              dataStatus: LoadingStatus.loadedWithSuccess),
         );
       } catch (e) {
         print('Error occured: $e');
